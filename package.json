@@ -3,7 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon server.js"
+    "server": "nodemon server.js",
+    "client": "cd client && yarn start",
+    "dev": "yarn server | yarn client"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
