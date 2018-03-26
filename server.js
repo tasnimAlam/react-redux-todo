@@ -7,6 +7,13 @@ const all = require("./routes/all");
 const completed = require("./routes/completed");
 const todos = require("./routes/todos");
 
+// CORS 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 app.use("/all", all);
 app.use("/completed", completed);
 app.use("/todos", todos);
