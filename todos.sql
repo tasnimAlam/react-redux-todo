@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 24, 2018 at 10:27 AM
+-- Generation Time: Mar 30, 2018 at 06:04 PM
 -- Server version: 10.1.31-MariaDB
--- PHP Version: 5.6.34
+-- PHP Version: 7.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -30,7 +30,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `todos` (
   `id` int(3) NOT NULL,
-  `tasks` varchar(32) NOT NULL,
+  `task` varchar(32) DEFAULT NULL,
   `completed` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -38,10 +38,12 @@ CREATE TABLE `todos` (
 -- Dumping data for table `todos`
 --
 
-INSERT INTO `todos` (`id`, `tasks`, `completed`) VALUES
+INSERT INTO `todos` (`id`, `task`, `completed`) VALUES
 (1, 'sleep', 1),
 (2, 'eat', 0),
-(3, 'ride', 0);
+(3, 'ride', 0),
+(4, 'reading', 1),
+(5, 'music', 1);
 
 --
 -- Indexes for dumped tables
@@ -61,7 +63,7 @@ ALTER TABLE `todos`
 -- AUTO_INCREMENT for table `todos`
 --
 ALTER TABLE `todos`
-  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
