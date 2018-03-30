@@ -1,3 +1,11 @@
-export default function rootReducer() {
-  return [1, 2, 4, 5];
-}
+import { combineReducers } from "redux";
+import TodoReducer from "./reducer_todo";
+import CompletedReducer from "./reducer_completed";
+import AllReducer from "./reducer_all";
+
+const rootReducer = combineReducers({
+  todos: TodoReducer,
+  completed: CompletedReducer,
+  all: AllReducer
+});
+export default rootReducer;

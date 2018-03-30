@@ -1,6 +1,8 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import All from "./All";
+import All from "../containers/All";
+import Completed from "../containers/Completed";
+import Todos from "../containers/Todos";
 
 const Dashboard = () => (
   <Router>
@@ -11,8 +13,8 @@ const Dashboard = () => (
 
       <Switch>
         <Route path="/all" component={All} />
-        <Route path="/completed" component={All} />
-        <Route path="/completed" component={All} />
+        <Route path="/completed" component={Completed} />
+        <Route path="/todos" component={Todos} />
       </Switch>
     </div>
   </Router>

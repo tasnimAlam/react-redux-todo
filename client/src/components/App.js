@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import AddTask from "./AddTask";
+import AddTask from "../containers/AddTask";
 import Dashboard from "./Dashboard";
 
 class App extends Component {
