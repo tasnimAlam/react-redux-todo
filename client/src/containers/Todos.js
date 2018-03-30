@@ -1,9 +1,17 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { fetchTodos } from "../actions/action_todos";
 
 class Todos extends Component {
+  componentDidMount() {
+    const url = "http://localhost:4000/todos";
+    this.props.fetchTodos(url);
+  }
   render() {
-    const data = this.props.todos;
+    const data = this.props.todos.data;
+    if (!data) return null;
+
     return <ul>{data.map(item => <li key={item.id}>{item.task}</li>)}</ul>;
   }
 }
@@ -14,4 +22,8 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps)(Todos);
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ fetchTodos }, dispatch);
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todos);

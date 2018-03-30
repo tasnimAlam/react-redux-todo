@@ -1,3 +1,10 @@
-export default function() {
-  return [{ id: 3, task: "wow", completed: 1 }];
+import { FETCH_COMPLETED } from "../actions/action_completed";
+
+export default function(state = [], action) {
+  switch (action.type) {
+    case FETCH_COMPLETED:
+      return action.payload;
+    default:
+      return state;
+  }
 }
