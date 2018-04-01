@@ -13,7 +13,15 @@ class Completed extends Component {
     const data = this.props.completed.data;
     if (!data) return null;
 
-    return <ul>{data.map(item => <li key={item.id}>{item.task}</li>)}</ul>;
+    return (
+      <ul>
+        {data.map(item => (
+          <li key={item.id} style={{ textDecoration: "line-through" }}>
+            {item.task}
+          </li>
+        ))}
+      </ul>
+    );
   }
 }
 
