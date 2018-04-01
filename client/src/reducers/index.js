@@ -1,11 +1,13 @@
 import { combineReducers } from "redux";
-import fetchCompletedReducer from "./reducer_completed";
-import fetchTodosReducer from "./reducer_todo";
+import fetchCompleted from "./reducer_completed";
+import fetchTodos from "./reducer_todo";
 import fetchAll from "./reducer_all";
+import addedTask from "./reducer_add";
 
 const rootReducer = combineReducers({
-  todos: fetchTodosReducer,
-  completed: fetchCompletedReducer,
-  all: fetchAll
+  todos: fetchTodos,
+  completed: fetchCompleted,
+  all: fetchAll,
+  addedTask: addedTask
 });
 export default rootReducer;

@@ -1,4 +1,7 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import addTask from "../actions/action_add";
 
 class AddTask extends Component {
   state = {
@@ -6,7 +9,13 @@ class AddTask extends Component {
   };
 
   onSubmit = e => {
+    const { task } = this.state;
     e.preventDefault();
+
+    const url = "http://localhost:4000/add";
+    this.props.addTask(url, task);
+
+    this.setState({ task: "" });
   };
 
   onInputChange = e => this.setState({ task: e.target.value });
@@ -26,4 +35,8 @@ class AddTask extends Component {
   }
 }
 
-export default AddTask;
+function mapDispatchToProps(dispatch) {
+  return bindActionCreators({ addTask }, dispatch);
+}
+
+export default connect(null, mapDispatchToProps)(AddTask);
