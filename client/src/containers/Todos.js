@@ -8,6 +8,10 @@ class Todos extends Component {
     this.fetchData();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.props.addedTask.data !== nextProps.addedTask.data && this.fetchData();
+  }
+
   fetchData = () => {
     const url = "http://localhost:4000/todos";
     this.props.fetchTodos(url);
@@ -17,15 +21,14 @@ class Todos extends Component {
     const data = this.props.todos.data;
     if (!data) return null;
 
-    this.fetchData();
-
     return <ul>{data.map(item => <li key={item.id}>{item.task}</li>)}</ul>;
   }
 }
 
 function mapStateToProps(state) {
   return {
-    todos: state.todos
+    todos: state.todos,
+    addedTask: state.addedTask
   };
 }
 

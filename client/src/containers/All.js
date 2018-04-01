@@ -8,6 +8,10 @@ class All extends Component {
     this.fetchData();
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.props.addedTask.data !== nextProps.addedTask.data && this.fetchData();
+  }
+
   fetchData = () => {
     const url = "http://localhost:4000/all";
     this.props.fetchAll(url);
@@ -17,7 +21,6 @@ class All extends Component {
     const data = this.props.all.data;
     if (!data) return null;
 
-    this.fetchData();
     return <ul>{data.map(item => <li key={item.id}>{item.task}</li>)}</ul>;
   }
 }
