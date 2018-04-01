@@ -5,12 +5,19 @@ import { fetchTodos } from "../actions/action_todos";
 
 class Todos extends Component {
   componentDidMount() {
+    this.fetchData();
+  }
+
+  fetchData = () => {
     const url = "http://localhost:4000/todos";
     this.props.fetchTodos(url);
-  }
+  };
+
   render() {
     const data = this.props.todos.data;
     if (!data) return null;
+
+    this.fetchData();
 
     return <ul>{data.map(item => <li key={item.id}>{item.task}</li>)}</ul>;
   }
