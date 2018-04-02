@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const connection = require("../db_connection");
 
-router.get("/", function(req, res, next) {
+router.get("/", (req, res) => {
   const sql = `SELECT * from todos`;
 
   connection.query(sql, (err, rows) => {
