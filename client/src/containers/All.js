@@ -23,9 +23,7 @@ class All extends Component {
     this.props.fetchAll(url);
   };
 
-  onDelete = id => {
-    this.props.deleteTask(id);
-  };
+  onDelete = id => this.props.deleteTask(id);
 
   render() {
     const data = this.props.all.data;
@@ -35,7 +33,7 @@ class All extends Component {
       <ul>
         {data.map(item => (
           <li key={item.id}>
-            <span>{item.task}</span>{" "}
+            <span>{item.task}</span>
             <button onClick={() => this.onDelete(item.id)}>delete</button>
           </li>
         ))}
