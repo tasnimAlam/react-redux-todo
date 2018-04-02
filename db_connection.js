@@ -4,7 +4,7 @@ let connection = mysql.createPool({
   connectionLimit: 10,
   host: "localhost",
   user: "root",
-  password: "jjj",
+  password: "root",
   database: "todo_db"
 });
 

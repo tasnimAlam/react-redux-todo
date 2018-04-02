@@ -3,7 +3,6 @@ const app = express();
 const cors = require("cors");
 
 // Define router
-const index = require("./routes/index");
 const all = require("./routes/all");
 const completed = require("./routes/completed");
 const todos = require("./routes/todos");
@@ -13,7 +12,6 @@ const update = require("./routes/update");
 
 // Handle json data
 const bodyParser = require("body-parser");
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -26,7 +24,6 @@ app.use("/todos", todos);
 app.use("/add", add);
 app.use("/delete", deleteTask);
 app.use("/update", update);
-app.use("/", index);
 
 // Listen to port
 const port = 4000;
