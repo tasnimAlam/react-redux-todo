@@ -10,10 +10,9 @@ class AddTask extends Component {
 
   onSubmit = e => {
     const { task } = this.state;
-    e.preventDefault();
-
-    const url = "http://localhost:4000/add";
-    this.props.addTask(url, task);
+    e.preventDefault();    
+    
+    this.props.addTask(task);
 
     this.setState({ task: "" });
   };
