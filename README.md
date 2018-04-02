@@ -8,7 +8,10 @@ A simple todo application created with React, Redux, Express and MariaDB.
 2. **cd react-redux-todo/**
 3. Import **todos.sql** file to MySQL.
 4. Change user, password, database in db_connection.js .
-5. **yarn dev**
+5. **yarn**
+6. **cd client/  && yarn**
+7. **cd .. && yarn dev**
+
 
 ## Built With
 * [ReactJS](https://reactjs.org/) : Front End
