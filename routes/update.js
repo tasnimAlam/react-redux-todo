@@ -4,7 +4,6 @@ const connection = require("../db_connection");
 
 router.put("/:id", function(req, res, next) {
   const sql = `UPDATE todos SET completed=1 WHERE id=${req.params.id} `;
-  console.log(sql);
 
   connection.query(sql, err => {
     if (err) {
