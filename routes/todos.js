@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const connection = require("../db_connection");
 
-router.get("/", function(req, res, next) {
+router.get("/", function(req, res) {
   const sql = `SELECT * from todos WHERE completed=0`;
 
   connection.query(sql, (err, rows) => {

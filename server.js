@@ -9,6 +9,7 @@ const completed = require("./routes/completed");
 const todos = require("./routes/todos");
 const add = require("./routes/add");
 const deleteTask = require("./routes/delete");
+const update = require("./routes/update");
 
 // Handle json data
 const bodyParser = require("body-parser");
@@ -24,6 +25,7 @@ app.use("/completed", completed);
 app.use("/todos", todos);
 app.use("/add", add);
 app.use("/delete", deleteTask);
+app.use("/update", update);
 app.use("/", index);
 
 // Listen to port

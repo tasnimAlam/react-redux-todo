@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { fetchTodos } from "../actions/action_todos";
 import deleteTask from "../actions/action_delete";
+import updateTask from "../actions/action_update";
 
 class Todos extends Component {
   componentDidMount() {
@@ -12,7 +13,8 @@ class Todos extends Component {
   componentWillReceiveProps(nextProps) {
     if (
       this.props.addedTask.data !== nextProps.addedTask.data ||
-      this.props.deleted !== nextProps.deleted
+      this.props.deleted !== nextProps.deleted ||
+      this.props.updated !== nextProps.updated
     ) {
       this.fetchData();
     }
@@ -25,6 +27,8 @@ class Todos extends Component {
 
   onDelete = id => this.props.deleteTask(id);
 
+  onComplete = id => this.props.updateTask(id);
+
   render() {
     const data = this.props.todos.data;
     if (!data) return null;
@@ -33,7 +37,7 @@ class Todos extends Component {
       <ul>
         {data.map(item => (
           <li key={item.id}>
-            {item.task}
+            <span onClick={() => this.onComplete(item.id)}> {item.task}</span>
             <button onClick={() => this.onDelete(item.id)}>delete</button>
           </li>
         ))}
@@ -46,12 +50,13 @@ function mapStateToProps(state) {
   return {
     todos: state.todos,
     addedTask: state.addedTask,
-    deleted: state.deleted
+    deleted: state.deleted,
+    updated: state.updated
   };
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ fetchTodos, deleteTask }, dispatch);
+  return bindActionCreators({ fetchTodos, deleteTask, updateTask }, dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Todos);
